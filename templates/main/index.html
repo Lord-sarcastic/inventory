@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>Inventory of stuffs</title>
+        <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+        <style>
+            .item-img {
+                object-fit: cover;
+                width: 100%;
+                height: 15rem;
+            }
+        </style>
+    <head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'main:home' %}">Inventory</a>
+                <button
+                  class="navbar-toggler"
+                  type="button"
+                  data-mdb-toggle="collapse"
+                  data-mdb-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#add-item">Add item</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#items">Items</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row" id="add-item">
+                <div class="col-12">
+                </div>
+            </div>
+
+            <div class="row" id="items">
+                {% for item in items %}
+                <div class="col-4">
+                    <img src="{{ item.picture_url }}" class="item-img">
+                    <h4 class="mt-1">{{ item.name }}</h4>
+                    <p>{{ item.description }}</p>
+                </div>
+                {% empty %}
+                <div class="col-12 my-5">
+                    <h2 class="text-center">There are no items added to the list</h2>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </body>
+</html>

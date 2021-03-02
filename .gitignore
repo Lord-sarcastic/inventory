@@ -58,7 +58,6 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
@@ -113,6 +112,9 @@ venv.bak/
 # Spyder project settings
 .spyderproject
 .spyproject
+
+# Vim
+Session.vim
 
 # Rope project settings
 .ropeproject
